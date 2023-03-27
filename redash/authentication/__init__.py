@@ -243,12 +243,14 @@ def logout_and_redirect_to_index():
 
 def init_app(app):
     from redash.authentication import (
+        github_oauth,
         saml_auth,
         remote_user_auth,
         ldap_auth,
     )
 
     from redash.authentication.google_oauth import create_google_oauth_blueprint
+    from redash.authentication.github_oauth import create_github_oauth_blueprint
 
     login_manager.init_app(app)
     login_manager.anonymous_user = models.AnonymousUser
@@ -262,7 +264,8 @@ def init_app(app):
     from redash.security import csrf
 
     # Authlib's flask oauth client requires a Flask app to initialize
-    for blueprint in [create_google_oauth_blueprint(app), saml_auth.blueprint, remote_user_auth.blueprint, ldap_auth.blueprint, ]:
+    for blueprint in [create_google_oauth_blueprint(app), saml_auth.blueprint, remote_user_auth.blueprint,
+                      ldap_auth.blueprint, create_github_oauth_blueprint(app), ]:
         csrf.exempt(blueprint)
         app.register_blueprint(blueprint)
 
