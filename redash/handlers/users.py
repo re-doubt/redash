@@ -78,28 +78,31 @@ class UserListResource(BaseResource):
     ]
 
     def get_users(self, disabled, pending, search_term):
-        if disabled:
-            users = models.User.all_disabled(self.current_org)
+        if not self.current_user.has_permission("admin"):
+            users = models.User.get_by_id_raw(current_user.id)
         else:
-            users = models.User.all(self.current_org)
+            if disabled:
+                users = models.User.all_disabled(self.current_org)
+            else:
+                users = models.User.all(self.current_org)
 
-        if pending is not None:
-            users = models.User.pending(users, pending)
+            if pending is not None:
+                users = models.User.pending(users, pending)
 
-        if search_term:
-            users = models.User.search(users, search_term)
-            self.record_event(
-                {
-                    "action": "search",
-                    "object_type": "user",
-                    "term": search_term,
-                    "pending": pending,
-                }
-            )
-        else:
-            self.record_event(
-                {"action": "list", "object_type": "user", "pending": pending}
-            )
+            if search_term:
+                users = models.User.search(users, search_term)
+                self.record_event(
+                    {
+                        "action": "search",
+                        "object_type": "user",
+                        "term": search_term,
+                        "pending": pending,
+                    }
+                )
+            else:
+                self.record_event(
+                    {"action": "list", "object_type": "user", "pending": pending}
+                )
 
         # order results according to passed order parameter,
         # special-casing search queries where the database

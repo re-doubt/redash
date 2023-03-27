@@ -199,6 +199,10 @@ class User(
         return cls.query.filter(cls.id == _id).one()
 
     @classmethod
+    def get_by_id_raw(cls, _id):
+        return cls.query.filter(cls.id == _id)
+
+    @classmethod
     def get_by_email_and_org(cls, email, org):
         return cls.get_by_org(org).filter(cls.email == email).one()
 

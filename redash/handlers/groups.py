@@ -52,6 +52,7 @@ class GroupResource(BaseResource):
 
         return group.to_dict()
 
+    @require_admin
     def get(self, group_id):
         if not (
             self.current_user.has_permission("admin")
