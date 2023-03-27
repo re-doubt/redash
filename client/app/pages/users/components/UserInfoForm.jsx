@@ -43,12 +43,6 @@ export default function UserInfoForm(props) {
       map(
         [
           {
-            name: "name",
-            title: "Name",
-            type: "text",
-            initialValue: user.name,
-          },
-          {
             name: "email",
             title: "Email",
             type: "email",

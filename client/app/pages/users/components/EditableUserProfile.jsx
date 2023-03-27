@@ -21,7 +21,7 @@ export default function EditableUserProfile(props) {
       <UserInfoForm user={user} onChange={setUser} />
       {!user.isDisabled && (
         <React.Fragment>
-          <ApiKeyForm user={user} onChange={setUser} />
+          {/*<ApiKeyForm user={user} onChange={setUser} />*/}
           <hr />
           <PasswordForm user={user} />
         </React.Fragment>

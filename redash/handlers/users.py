@@ -219,7 +219,7 @@ class UserResource(BaseResource):
     decorators = BaseResource.decorators + [limiter.limit("50/hour", methods=["POST"])]
 
     def get(self, user_id):
-        require_permission_or_owner("list_users", user_id)
+        require_permission_or_owner("admin", user_id)
         user = get_object_or_404(
             models.User.get_by_id_and_org, user_id, self.current_org
         )
@@ -237,7 +237,7 @@ class UserResource(BaseResource):
         req = request.get_json(True)
 
         params = project(
-            req, ("email", "name", "password", "old_password", "group_ids")
+            req, ("email", "password", "old_password", "group_ids")
         )
 
         if "password" in params and "old_password" not in params:
