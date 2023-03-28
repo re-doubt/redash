@@ -267,6 +267,7 @@ class QueryListResource(BaseQueryListResource):
 
 
 class QueryArchiveResource(BaseQueryListResource):
+    @require_permission("admin")
     def get_queries(self, search_term):
         if search_term:
             return models.Query.search(
