@@ -1,0 +1,98 @@
+#application-root > .dark_iframe {
+  background: #0d1321 !important;
+  margin: 0 !important;
+  border-radius: 0px;
+}
+
+.dark_iframe .visualization-renderer svg {
+  background: none !important;
+}
+
+.dark_iframe .embed-heading > h3 {
+  color: white !important ;
+  display: flex !important;
+  gap: 10px !important;
+  align-items: center !important;
+}
+
+.dark_iframe .xgrid,
+.dark_iframe .ygrid {
+  stroke: #374151 !important;
+}
+
+.dark_iframe .yaxislayer-above text {
+  fill: white !important;
+}
+
+.dark_iframe .xaxislayer-above text {
+  fill: white !important;
+}
+
+.dark_iframe .legend > rect.bg {
+  fill: none !important;
+}
+
+.dark_iframe .legend text {
+  fill: white !important;
+}
+
+.dark_iframe .parameter-block {
+  background: none !important;
+}
+
+.dark_iframe .parameter-heading {
+  color: #d1d5db !important;
+}
+
+.dark_iframe .ant-select-selector {
+  background: #1f2937 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 8px !important;
+}
+
+.dark_iframe .ant-btn {
+  background: #1f2937 !important;
+  border-radius: 8px !important;
+  border: none !important;
+  color: white !important;
+}
+
+.dark_iframe .ant-badge > .ant-scroll-number {
+  box-shadow: none !important;
+}
+
+.dark_iframe .ant-select-arrow {
+  color: white !important;
+}
+
+.dark_iframe .modebar > div {
+  background: none !important;
+}
+
+.dark_iframe .modebar > div * {
+  fill: #6b7280 !important;
+}
+
+.dark_iframe .anticon-close-circle svg {
+  background-color: #1f2937 !important;
+}
+
+.dark_iframe .anticon path {
+  color: white !important;
+}
+
+.dark_iframe .ant-select-item {
+  background-color: #1f2937 !important;
+  color: white !important;
+}
+
+.dark_iframe .ant-select-dropdown {
+  background-color: #1f2937 !important;
+  color: white !important;
+  border-radius: 8px !important;
+}
+
+.dark_iframe .hidden-print {
+  color: #9ca3af !important;
+}
