@@ -36,7 +36,7 @@ def embed(query_id, visualization_id, org_slug=None):
 )
 @login_required
 @csp_allows_embeding
-def embed(query_id, visualization_id, org_slug=None):
+def embed_dark(query_id, visualization_id, org_slug=None):
     record_event(
         current_org,
         current_user._get_current_object(),
